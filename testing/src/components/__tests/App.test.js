@@ -1,15 +1,19 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
 import App from '../App'
+import { render, screen } from '@testing-library/react' //gives us stuff that makes it easier to write tests
+import '@testing-library/jest-dom'; //gives us cool matching functions like toContainElement
 
 it ('shows the CommentBox component', () => {
-    const div = document.createElement('div') //create a div element in JSDom
-    ReactDOM.render(<App/>, div) //put App component inside div we just created
-    
-    // console.log(div.innerHTML)
-    // console.log(div)
 
-    expect(div.innerHTML).toContain('Comment Box') //assumes knowledge about another component - that CommentBox component has 'Comment Box' inside it - tests like these are to be avoided
+    // https://testing-library.com/docs/react-testing-library/example-intro
+    render(<App/>) // "The render method renders a React element into the DOM."
 
-    ReactDOM.unmountComponentAtNode(div) // deletes App component from div element -> for cleanup
+    // https://testing-library.com/docs/react-testing-library/example-intro/
+    const app = screen.getByTestId('app') //I'm guessing screen is the dom
+    console.log(app.innerHTML)
+    const commentBox = screen.getByTestId('comment-box')
+    console.log(commentBox.innerHTML)
+
+    // https://www.npmjs.com/package/@testing-library/jest-dom#tocontainelement
+    expect(app).toContainElement(commentBox)
 })

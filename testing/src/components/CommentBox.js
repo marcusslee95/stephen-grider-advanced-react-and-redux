@@ -2,7 +2,7 @@ import React from 'react'
 
 const CommentBox = () => {
     return (
-        <div>
+        <div data-testid="comment-box">
             Comment Box
         </div>
     )
