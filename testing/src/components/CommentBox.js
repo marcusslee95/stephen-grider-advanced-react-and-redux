@@ -12,20 +12,18 @@ class CommentBox extends Component {
     handleSubmit = (event) => {//event will refer to the submit event
         event.preventDefault() //submit event by default causes page to reload -> we don't want that
 
-        //TODO - change state of commentList -> add this new comment to it
+        //TODO - change state-> add this new comment to commentList 
 
         this.setState({comment: ''}) //after user submits a comment clear out the text area 
 
     }
     render() {
         return (
-            <div>
-                <form onSubmit={this.handleSubmit}>
-                    <h4>Add a Comment</h4>
-                    <textarea onChange={this.handleChange} value={this.state.comment}/>
-                    <div><button>Submit Comment</button></div>
-                </form>
-            </div>
+            <form onSubmit={this.handleSubmit}>
+                <h4>Add a Comment</h4>
+                <textarea onChange={this.handleChange} value={this.state.comment}/>
+                <div><button>Submit Comment</button></div>
+            </form>
         )
     }
 }
