@@ -8,7 +8,6 @@ import { reducer } from '../../reducers'
 
 let commentBoxcomponent
 beforeEach(() => {
-
     commentBoxcomponent = mount(
         <Provider store={createStore(reducer)}>
             <CommentBox/>
