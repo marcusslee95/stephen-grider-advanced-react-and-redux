@@ -2,9 +2,11 @@
 
 import { SAVE_COMMENT } from './types'
 
-export const saveComment = (commentUserSubmitted) => { //an action is just a object w/a type and a payload that will be received by reducers to change state
+const saveComment = (commentUserSubmitted) => { //an action is just a object w/a type and a payload that will be received by reducers to change state
     return {
         type: SAVE_COMMENT,
         payload: commentUserSubmitted
     }
 }
+
+export default saveComment
