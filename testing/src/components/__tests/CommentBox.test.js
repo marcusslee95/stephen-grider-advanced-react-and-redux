@@ -29,3 +29,24 @@ it('shows whatever user typed into textarea', () => {
 
 })
 
+it('clears out the textarea after user submits form', () => {
+    //to know that we clear out textarea.... we have to first populate textarea w/some text -> we can check if it really is populated -> this way when we try to clear out textarea after submit we can see if textarea was really cleared out
+    //Part1: populating -> just copy paste poulating code from above test
+    commentBoxcomponent.find('textarea') 
+    .simulate('change', {
+        target:{ value: 'new comment' }
+    }) 
+    
+    commentBoxcomponent.setProps({})
+
+    expect(commentBoxcomponent.find('textarea').props().value).toEqual('new comment') 
+    //Part2: trigger submit event and see if that causes clearout to happen
+    commentBoxcomponent.find('form') 
+    .simulate('submit', {}) 
+
+    commentBoxcomponent.setProps({}) //also force rerender of component -> otherwise no guarantee component has been rerendered by this line -> rerender doesn't happen right after state changes but whenever component wants to 
+    // console.log(commentBoxcomponent.find('form').debug())
+
+    expect(commentBoxcomponent.find('textarea').props().value).toEqual('') 
+})
+
