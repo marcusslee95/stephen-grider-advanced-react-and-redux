@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import saveComment from '../actions'
+import { saveComment } from '../actions'
 
 class CommentBox extends Component {
     state = {

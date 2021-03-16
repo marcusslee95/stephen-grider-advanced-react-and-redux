@@ -9,4 +9,4 @@ const saveComment = (commentUserSubmitted) => { //an action is just a object w/a
     }
 }
 
-export default saveComment
+export { saveComment } //not exporting saveComment as default because what if I want to export more actionCreators
