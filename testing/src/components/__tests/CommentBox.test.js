@@ -2,9 +2,17 @@ import React from 'react'
 import CommentBox from "../CommentBox";
 import { mount } from 'enzyme'
 
+import { Provider } from 'react-redux'
+import { createStore } from 'redux'
+import { reducer } from '../../reducers'
+
 let commentBoxcomponent
 beforeEach(() => {
-    commentBoxcomponent = mount(<CommentBox/>);//we'll be initializing a new Comment Box component to work w/before ever test so just pulled it out here
+
+    commentBoxcomponent = mount(
+        <Provider store={createStore(reducer)}>
+            <CommentBox/>
+        </Provider>);//we'll be initializing a new Comment Box component to work w/before ever test so just pulled it out here
 })
 afterEach(() => {
     commentBoxcomponent.unmount() //we'll also be removing the CommentBox component from the JSDom after every test -> because unlike shallow and static render methods, fullDom render method actually puts component into the JSDom -> if we don't do this every test we'll be adding another instance of the CommentBox component to the DOM -> that will make tests slower and might interfere with tests
