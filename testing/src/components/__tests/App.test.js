@@ -4,23 +4,20 @@ import React from 'react'
 import App from '../App'
 import CommentBox from '../CommentBox'
 import CommentList from '../CommentList'
-//enzyme stuff
-import Enzyme, { shallow } from 'enzyme'
-import Adapter from '@wojtekmaj/enzyme-adapter-react-17'
-Enzyme.configure({ adapter: new Adapter() });
+import { shallow } from 'enzyme'
 
-let stuffInsideAppComponentThatWasRenderedAkaPutIntoTheDom;
+let shallowVersionOfTheComponent;
 
 beforeEach(() => {//code that runs before every test
-    stuffInsideAppComponentThatWasRenderedAkaPutIntoTheDom = shallow(<App/>) //renders everything inside the App component besides child components inside it (though it does create a bookmark / placeholder saying a child component does exist here) -> returns an object of the stuff we rendered
+    shallowVersionOfTheComponent = shallow(<App/>) //renders everything inside the App component besides child components inside it (though it does create a bookmark / placeholder saying a child component does exist here) -> returns an object of the stuff we rendered
 
 })
 it('shows the CommentBox component', () => {
-    expect(stuffInsideAppComponentThatWasRenderedAkaPutIntoTheDom.find(CommentBox).length).toEqual(1)
+    expect(shallowVersionOfTheComponent.find(CommentBox).length).toEqual(1)
 })
 
 it('shows the CommentList component', () => {
-    expect(stuffInsideAppComponentThatWasRenderedAkaPutIntoTheDom.find(CommentList).length).toEqual(1)
+    expect(shallowVersionOfTheComponent.find(CommentList).length).toEqual(1)
 })
 
 
