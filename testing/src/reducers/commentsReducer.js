@@ -9,7 +9,9 @@ const commentsReducer = (state = [], action) => { //state does not refer to the 
             return [...state, action.payload] //add comment to comments propperty / variable in state
         case FETCH_COMMENTS:
             // console.log(action.payload)
-            return [...state, ...action.payload]
+            const arrOfNameStrings = action.payload.data.map(commentObject => commentObject.name) //take each commentObject in the array and replace it with the name string in that object so at the end you won't have arr of objects but arr of strings
+            // console.log(arrOfNameStrings)
+            return [...state, ...arrOfNameStrings]
         default:
             return state
     }

@@ -30,13 +30,14 @@ class CommentBox extends Component {
                     <div><button>Submit Comment</button></div>
                 </form>
 
-                <button onClick={async () => {//b4: my version of FETCH_COMMENTS that doesn't use asynchronous action creator by sending the network request before calling action creator and passing in the response into the action creator
+                {/* <button onClick={async () => {//b4: my version of FETCH_COMMENTS that doesn't use asynchronous action creator by sending the network request before calling action creator and passing in the response into the action creator
                     const response = await axios.get('https://jsonplaceholder.typicode.com/comments')
                     // console.log(response.data)
                     const arrOfNameStrings = response.data.map(commentObject => commentObject.name) //take each commentObject in the array and replace it with the name string in that object so at the end you won't have arr of objects but arr of strings
                     // console.log(arrOfNameStrings)
                     this.props.fetchComments(arrOfNameStrings)
-                }}>Fetch Comments</button>
+                }}>Fetch Comments</button> */}
+                <button onClick={this.props.fetchComments}>Fetch Comments</button>
             </div>
         )
     }

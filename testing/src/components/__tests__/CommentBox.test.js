@@ -19,7 +19,7 @@ it('shows a textarea and a button', () => {
     // console.log(commentBoxcomponent.debug())
     // console.log(commentBoxcomponent.find('textarea').debug())
     expect(commentBoxcomponent.find('textarea').length).toEqual(1) //so find method can not only find childComponents but also normal html elements inside a component
-    expect(commentBoxcomponent.find('button').length).toEqual(1)
+    expect(commentBoxcomponent.find('button').length).toEqual(2)
 })
 
 describe('tests that test the textarea', () => {
