@@ -11,7 +11,7 @@ beforeEach(() => {
     moxios.stubRequest('http://jsonplaceholder.typicode.com/comments', 
         {
             status: 200,
-            response: [{name: 'Fetched #1'}, {name: 'Fetched #2'}] //need array of objects because that's what api returned but don't need all the fields cuz as long as fits the structure of what we get back it's a valid replacement for what would have been the response object
+            response: [{name: 'Fetched #1'}, {name: 'Fetched #2'}] //need array of objects because that's what api returned but don't need all the fields cuz as long as fits the structure of what we get back it's a valid replacement for what would have been the response object -> but then I realized that reducer looks for response.data but..... there's no data property on this thing.... maybe it magically knows that whatever is in response is supposed to be value to the data prop?
         }
     )
 })
