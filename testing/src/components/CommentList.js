@@ -6,15 +6,17 @@ class CommentList extends Component {
 
     createListOfComments = () => {
         return this.props.comments.map((comment, index) => {
-            return <li id={index}>{comment}</li>
+            return <li key={index}>{comment}</li>
         })
     }
 
     render(){
         return (
-            <ul>
-                {this.createListOfComments()}
-            </ul>
+            <div>
+                <ul>
+                    {this.createListOfComments()}
+                </ul>
+            </div>
         )
     }
 }
