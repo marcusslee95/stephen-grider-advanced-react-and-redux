@@ -19,14 +19,24 @@ const saveComment = (commentUserSubmitted) => { //an action is just a object w/a
 // }
 // //AFTER: my non async action creator 
 
-const fetchComments = async () => {
-    const response = await axios.get('https://jsonplaceholder.typicode.com/comments')
-    // console.log(response.data)
+// const fetchComments = async () => {
+//     const response = await axios.get('https://jsonplaceholder.typicode.com/comments')
+//     // console.log(response.data)
+//     return {
+//         type: FETCH_COMMENTS,
+//         payload: response
+//     }
+// }
+
+const fetchComments = () => { //my async way didn't work.... weird 
+    const response = axios.get('http://jsonplaceholder.typicode.com/comments');
+  
     return {
-        type: FETCH_COMMENTS,
-        payload: response
-    }
-}
+      type: FETCH_COMMENTS,
+      payload: response
+    };
+  }
+  
 
 
 export { saveComment, fetchComments } //not exporting saveComment as default because what if I want to export more actionCreators
